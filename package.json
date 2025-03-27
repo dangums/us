@@ -1,0 +1,16 @@
+{
+  "name": "us",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "luxon": "^3.6.0"
+  },
+  "devDependencies": {
+    "serve": "^14.2.4"
+  },
+  "scripts": {
+    "start": "serve .",
+    "dev": "serve ."
+  }
+}

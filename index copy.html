@@ -1,0 +1,125 @@
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nossa História de Amor</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="importmap">
+    {
+      "imports": {
+        "luxon": "https://cdn.jsdelivr.net/npm/luxon@3.4.3/build/es6/luxon.min.js"
+      }
+    }
+    </script>
+    <script type="module" src="config.js"></script>
+    <script type="module" src="carousel.js"></script>
+    <script type="module" src="script.js"></script>
+</head>
+<body>
+    <div class="background-animation">
+        <svg class="heart-bg" viewBox="0 0 100 100">
+            <path d="M50,30 C35,10 0,10 0,40 C0,65 25,80 50,95 C75,80 100,65 100,40 C100,10 65,10 50,30 Z" fill="rgba(255, 0, 0, 0.1)"></path>
+        </svg>
+    </div>
+    
+    <div class="container">
+        <header class="glass-effect">
+            <h1 id="couple-names">Nossa História de Amor</h1>
+            <div class="countdown">
+                <h2>Juntos há</h2>
+                <div class="countdown-timer">
+                    <div class="time-unit">
+                        <span id="years">0</span>
+                        <span>Anos</span>
+                    </div>
+                    <div class="time-unit">
+                        <span id="months">0</span>
+                        <span>Meses</span>
+                    </div>
+                    <div class="time-unit">
+                        <span id="days">0</span>
+                        <span>Dias</span>
+                    </div>
+                    <div class="time-unit">
+                        <span id="hours">0</span>
+                        <span>Horas</span>
+                    </div>
+                    <div class="time-unit">
+                        <span id="minutes">0</span>
+                        <span>Minutos</span>
+                    </div>
+                    <div class="time-unit">
+                        <span id="seconds">0</span>
+                        <span>Segundos</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+        
+        <section id="couple-photo" class="glass-effect">
+            <h2>Nós</h2>
+            <div class="photo-frame">
+                <img id="main-couple-photo" src="placeholder.png" alt="Nossa Foto">
+                <input type="file" id="photo-upload" accept="image/png" style="display: none">
+                <button id="upload-couple-photo" class="upload-btn">Enviar Foto</button>
+            </div>
+        </section>
+        
+        <section id="photo-gallery" class="glass-effect">
+            <h2>Nossas Memórias</h2>
+            <div class="carousel-container" id="photo-carousel">
+                <div class="carousel">
+                    <!-- Photos will be added here by the Carousel class -->
+                </div>
+            </div>
+            <div class="gallery-controls">
+                <input type="file" id="gallery-upload" accept="image/*" multiple style="display: none">
+                <button id="upload-gallery" class="upload-btn">Adicionar Fotos</button>
+            </div>
+        </section>
+        
+        <section id="declarations" class="glass-effect">
+            <h2>Palavras Doces</h2>
+            <div class="declaration-container" id="declarations-container">
+                <!-- Declarations will be added here -->
+                <div class="declaration">
+                    <p id="declaration-text">Cada dia com você é como um sonho realizado. Te amo mais a cada momento que passa.</p>
+                    <div class="declaration-controls">
+                        <button id="edit-declaration" class="edit-btn">Editar</button>
+                    </div>
+                </div>
+            </div>
+            <button id="add-declaration" class="add-btn">Adicionar Mensagem</button>
+        </section>
+        
+        <section id="milestones" class="glass-effect">
+            <h2>Momentos Importantes</h2>
+            <div class="timeline" id="milestone-timeline">
+                <!-- Milestones will be added here -->
+            </div>
+            <button id="add-milestone" class="add-btn">Adicionar Momento</button>
+        </section>
+        
+        <section id="final-note" class="glass-effect">
+            <h2>Para Sempre Seu</h2>
+            <div class="final-message">
+                <p id="final-message-text">Meu amor por você cresce mais forte a cada dia. Obrigado por ser meu parceiro, meu amigo e minha alma gêmea.</p>
+                <div class="declaration-controls">
+                    <button id="edit-final" class="edit-btn">Editar</button>
+                </div>
+            </div>
+            <div class="final-hearts">
+                <svg class="heart" viewBox="0 0 100 100">
+                    <path d="M50,30 C35,10 0,10 0,40 C0,65 25,80 50,95 C75,80 100,65 100,40 C100,10 65,10 50,30 Z" fill="red"></path>
+                </svg>
+                <svg class="heart" viewBox="0 0 100 100">
+                    <path d="M50,30 C35,10 0,10 0,40 C0,65 25,80 50,95 C75,80 100,65 100,40 C100,10 65,10 50,30 Z" fill="red"></path>
+                </svg>
+                <svg class="heart" viewBox="0 0 100 100">
+                    <path d="M50,30 C35,10 0,10 0,40 C0,65 25,80 50,95 C75,80 100,65 100,40 C100,10 65,10 50,30 Z" fill="red"></path>
+                </svg>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
