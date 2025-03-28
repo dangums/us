@@ -22,6 +22,65 @@ export class Carousel {
         // Initial responsiveness adjustment
         this.adjustResponsiveness();
         window.addEventListener('resize', () => this.adjustResponsiveness());
+
+                // Configurações de sensibilidade
+                this.swipeThreshold = 50; // Distância mínima para considerar swipe
+                this.animationDuration = 300; // Duração da animação em ms
+                
+                this.setupTouchEvents();
+                this.updateCarousel();
+    }
+
+    setupTouchEvents() {
+        let startX, moveX, isSwiping = false;
+
+        this.carousel.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+            isSwiping = true;
+            this.carousel.style.transition = 'none';
+        }, { passive: true });
+
+        this.carousel.addEventListener('touchmove', (e) => {
+            if (!isSwiping) return;
+            moveX = e.touches[0].clientX;
+            const diff = moveX - startX;
+            this.carousel.style.transform = `translateX(${-this.currentIndex * 100 + diff * 0.2}%)`;
+        }, { passive: true });
+
+        this.carousel.addEventListener('touchend', () => {
+            if (!isSwiping) return;
+            isSwiping = false;
+            
+            const diff = moveX - startX;
+            if (Math.abs(diff) > this.swipeThreshold) {
+                if (diff > 0) {
+                    this.prev();
+                } else {
+                    this.next();
+                }
+            } else {
+                this.updateCarousel();
+            }
+        });
+    }
+
+    next() {
+        if (this.currentIndex < this.images.length - 1) {
+            this.currentIndex++;
+            this.updateCarousel();
+        }
+    }
+
+    prev() {
+        if (this.currentIndex > 0) {
+            this.currentIndex--;
+            this.updateCarousel();
+        }
+    }
+
+    updateCarousel() {
+        this.carousel.style.transition = `transform ${this.animationDuration}ms ease`;
+        this.carousel.style.transform = `translateX(${-this.currentIndex * 100}%)`;
     }
 
     adjustResponsiveness() {

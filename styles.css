@@ -189,6 +189,7 @@ header {
     margin: 20px 0;
     position: relative;
     user-select: none;
+    scroll-snap-type: x mandatory;
     /*width: 100%;*/
 }
 
