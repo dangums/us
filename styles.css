@@ -490,11 +490,6 @@ button:hover {
     font-size: 0.8rem;
 }
 
-img, video, iframe {
-    max-width: 100%;
-    height: auto;
-}
-
 /* Media Queries for small devices */
 @media (max-width: 480px) {
     .countdown-timer {
