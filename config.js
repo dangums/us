@@ -31,6 +31,11 @@ export const config = {
     demoGalleryImages: [
         './images/photo_2025-03-27_10-45-10.jpg',
         './images/photo_2025-03-27_13-55-13.jpg',
-        './images/us.png'
+        './images/us.png',
+        './images/001.jpg',
+        './images/002.jpg',
+        './images/003.jpg',
+        './images/004.jpg',
+        './images/005.jpg',
     ]
     };
