@@ -57,8 +57,10 @@ body {
 
 .container {
     max-width: 100%;
+    width: 100%;
     padding: 20px;
     margin: 0 auto;
+    box-sizing: border-box;
 }
 
 h1, h2, h3 {
@@ -488,6 +490,11 @@ button:hover {
     font-size: 0.8rem;
 }
 
+img, video, iframe {
+    max-width: 100%;
+    height: auto;
+}
+
 /* Media Queries for small devices */
 @media (max-width: 480px) {
     .countdown-timer {
@@ -500,5 +507,26 @@ button:hover {
 
     .time-unit span:first-child {
         font-size: 1.5rem;
+    }
+}
+
+/* Para telas maiores que 768px */
+@media (min-width: 768px) {
+    .container {
+        max-width: 750px; /* Largura fixa para desktop */
+    }
+}
+
+/* Para telas maiores que 992px */
+@media (min-width: 992px) {
+    .container {
+        max-width: 970px;
+    }
+}
+
+/* Para telas maiores que 1200px */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1170px;
     }
 }
