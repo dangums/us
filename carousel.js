@@ -14,21 +14,42 @@ export class Carousel {
         this.carouselDots = document.createElement('div');
         this.carouselDots.className = 'carousel-dots';
         this.container.appendChild(this.carouselDots);
+        // Add grab cursor
+        this.carousel.style.cursor = 'grab';
         
         this.setupEventListeners();
+
+        // Initial responsiveness adjustment
+        this.adjustResponsiveness();
+        window.addEventListener('resize', () => this.adjustResponsiveness());
+    }
+
+    adjustResponsiveness() {
+        // Adjust image size based on container size
+        const containerWidth = this.container.offsetWidth;
+        const imagesToShow = Math.floor(containerWidth / 200); // Estimate how many images fit
+        
+        this.images.forEach(img => {
+            img.style.width = `${containerWidth / imagesToShow - 30}px`;
+            img.style.height = 'auto';
+            img.style.margin = '0 15px';
+        });
+        
+        // Center the active image
+        this.centerActiveImage();
     }
     
     setupEventListeners() {
-        // Touch events for mobile
-        this.carousel.addEventListener('touchstart', (e) => this.handleTouchStart(e));
-        this.carousel.addEventListener('touchmove', (e) => this.handleTouchMove(e));
-        this.carousel.addEventListener('touchend', () => this.handleTouchEnd());
+          // Touch events for mobile devices
+        this.carousel.addEventListener('touchstart', (e) => this.handleTouchStart(e), { passive: false });
+        this.carousel.addEventListener('touchmove', (e) => this.handleTouchMove(e), { passive: false });
+        this.carousel.addEventListener('touchend', () => this.handleTouchEnd(), { passive: false });
         
         // Mouse events for desktop
-        this.carousel.addEventListener('mousedown', (e) => this.handleMouseDown(e));
-        window.addEventListener('mousemove', (e) => this.handleMouseMove(e));
-        window.addEventListener('mouseup', () => this.handleMouseUp());
-        
+        this.carousel.addEventListener('mousedown', (e) => this.handleDragStart(e));
+        window.addEventListener('mousemove', (e) => this.handleDrag(e));
+        window.addEventListener('mouseup', () => this.handleDragEnd());
+
         // Prevent context menu on long press
         this.carousel.addEventListener('contextmenu', (e) => e.preventDefault());
     }
@@ -39,7 +60,7 @@ export class Carousel {
         img.alt = alt;
         img.classList.add('carousel-image');
         
-        // Add click to enlarge functionality
+        // Add click-to-enlarge functionality
         img.addEventListener('click', () => {
             if (img.classList.contains('active')) {
                 this.openImageModal(src);
@@ -53,9 +74,12 @@ export class Carousel {
         this.images.push(img);
         this.updateCarouselState();
         this.updateDots();
+        
+        // Adjust responsiveness after adding image
+        this.adjustResponsiveness();
     }
     
-    updateCarouselState() {
+   /*updateCarouselState() {
         this.images.forEach((img, index) => {
             img.classList.remove('active', 'prev', 'next');
             
@@ -69,6 +93,19 @@ export class Carousel {
                 img.classList.add('next');
             }
         });
+    }*/
+
+    updateCarouselState() {
+        this.images.forEach((img, index) => {
+            img.classList.remove('active');
+            
+            if (index === this.currentIndex) {
+                img.classList.add('active');
+            }
+        });
+        
+        // Centraliza a imagem ativa
+        this.centerActiveImage();
     }
     
     updateDots() {
@@ -96,7 +133,7 @@ export class Carousel {
         this.centerActiveImage();
     }
     
-    centerActiveImage() {
+    /*centerActiveImage() {
         if (this.images.length === 0) return;
         
         const activeImage = this.images[this.currentIndex];
@@ -110,7 +147,17 @@ export class Carousel {
         const containerCenter = containerRect.left + containerWidth / 2;
         const offset = imageCenter - containerCenter;
         
+        this.carousel.style.transition = 'transform 0.3s ease';
         this.carousel.style.transform = `translateX(${-offset}px)`;
+    }*/
+    centerActiveImage() {
+        if (this.images.length === 0) return;
+          
+        const containerWidth = this.container.offsetWidth;
+        const imageWidth = containerWidth / 3;
+        const scrollPosition = this.currentIndex * imageWidth - imageWidth;
+        
+        this.carousel.style.transform = `translateX(${-scrollPosition}px)`;
     }
     
     nextImage() {
@@ -200,7 +247,7 @@ export class Carousel {
         return 0;
     }
     
-    openImageModal(src) {
+    /*openImageModal(src) {
         const modal = document.createElement('div');
         modal.className = 'image-modal';
         modal.style.position = 'fixed';
@@ -226,5 +273,52 @@ export class Carousel {
         modal.addEventListener('click', () => {
             modal.remove();
         });
-    }
+    }*/
+        openImageModal(src) {
+            const modal = document.createElement('div');
+            modal.className = 'image-modal';
+            
+            const img = document.createElement('img');
+            img.src = src;
+            
+            // Botão de fechar
+            const closeBtn = document.createElement('button');
+            closeBtn.className = 'modal-close';
+            closeBtn.innerHTML = '&times;';
+            closeBtn.addEventListener('click', () => modal.remove());
+            
+            // Botão de navegação anterior
+            const prevBtn = document.createElement('button');
+            prevBtn.className = 'modal-nav modal-prev';
+            prevBtn.innerHTML = '&larr;';
+            prevBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                this.prevImage();
+                img.src = this.images[this.currentIndex].src;
+            });
+            
+            // Botão de navegação próxima
+            const nextBtn = document.createElement('button');
+            nextBtn.className = 'modal-nav modal-next';
+            nextBtn.innerHTML = '&rarr;';
+            nextBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                this.nextImage();
+                img.src = this.images[this.currentIndex].src;
+            });
+            
+            modal.appendChild(img);
+            modal.appendChild(prevBtn);
+            modal.appendChild(nextBtn);
+            modal.appendChild(closeBtn);
+            
+            // Fecha o modal ao clicar fora da imagem
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.remove();
+                }
+            });
+            
+            document.body.appendChild(modal);
+        }
 }

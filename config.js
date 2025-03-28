@@ -1,7 +1,7 @@
 // Configuration settings
 export const config = {
     // Couple's information
-    coupleNames: 'Amor que transpõe barreisas',
+    coupleNames: "Je t'aime ma vie",
     
     // Dating start date (format: YYYY-MM-DD)
     startDate: '2012-09-23',
