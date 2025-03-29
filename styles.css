@@ -522,12 +522,32 @@ button:hover {
     .container {
         max-width: 750px; /* Largura fixa para desktop */
     }
+    .carousel-image.active {
+        /*height: 220px;
+        z-index: 5;*/
+        /*box-shadow: 0 0 15px rgba(255, 51, 102, 0.7);*/
+        border: 2px solid var(--primary-color);
+        opacity: 1;
+        transform: scale(1);
+        z-index: 2;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3)
+    }
 }
 
 /* Para telas maiores que 992px */
 @media (min-width: 992px) {
     .container {
         max-width: 970px;
+    }
+    .carousel-image.active {
+        /*height: 220px;
+        z-index: 5;*/
+        /*box-shadow: 0 0 15px rgba(255, 51, 102, 0.7);*/
+        border: 2px solid var(--primary-color);
+        opacity: 1;
+        transform: scale(1);
+        z-index: 2;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3)
     }
 }
 
