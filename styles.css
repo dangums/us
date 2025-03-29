@@ -196,9 +196,9 @@ header {
 .carousel {
     display: flex;
     align-items: center;
-    /*justify-content: center;*/
     transition: transform 0.5s ease;
     will-change: transform;
+    width: 100%; /* Garante que ocupe todo o container */
     /*padding: 20px 0;*/
 }
 

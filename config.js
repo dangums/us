@@ -14,17 +14,58 @@ export const config = {
             description: 'O dia em que você alugou um triplex na minha cabeça.'
         },
         {
-            date: '2013-02-14',
-            title: 'Primeiro Dia dos Namorados',
-            description: 'Nosso primeiro Dia dos Namorados juntos foi mágico.'
-        }
+            date: '2012-09-21',
+            title: 'Ilha Grande',
+            description: 'Fizemos juntos nossa primeira viagem. E ainda nem estavamos namorando.'
+        },
+        {
+            date: '2012-09-21',
+            title: 'Segundo beijo',
+            description: 'Apartir desse dia soude que você numca mais sairia da minha vida.'
+        },
+        {
+            date: '2012-09-23',
+            title: 'Pedido de Namoro',
+            description: 'Foi nesse dia, a caminho da rodoviária que te pedi em namoro.'
+        },
+        {
+            date: '2013-09-',
+            title: 'Moramos juntos',
+            description: 'Esse foi um grande passo para a nossa grande jornada.'
+        },
+        {
+            date: '2014-09-18',
+            title: 'Enfim, casados',
+            description: 'Nesse dia firmamos oficialmente o amor que sentimos um pelo outro.'
+        },
+        {
+            date: '2017-07-',
+            title: 'Voo inesquecível',
+            description: 'Voamos pela primeira vez de avião, JUNTOS e descobrimos que nunca mais estaríamos sós.'
+        },
+        {
+            date: '2018-03-05',
+            title: 'Nosso amor virou gente',
+            description: 'Recebemos do universo o presente mais valioso que poderíamos. NOSSA FILHA.'
+        },
+        {
+            date: '2020-08-',
+            title: 'Mudanças e evolução',
+            description: 'Nossa vida mudou com uma oportunidade maravilhosa de trabalho.'
+        },
+        {
+            date: '2025-03-',
+            title: 'Mais um desafio',
+            description: 'Hoje estamos passando por mais uma mudaça desafiante e tenho certeza que isso nos fará crescer de todas as formas possíveis.'
+        },
+
     ],
     
     // Placeholder text for default declaration
-    defaultDeclaration: 'Cada dia com você é como um sonho realizado. Te amo mais a cada momento que passa.',
+    defaultDeclaration: 'O universo escreveu nossa história muito antes dela acontecer e vendo os eventos que acontecem durante o passar dos anos vejo que fomos feitos um para o outro.',
     
     // Placeholder text for final message
-    finalMessage: 'Meu amor por você cresce mais forte a cada dia. Obrigado por ser meu parceiro, meu amigo e minha alma gêmea.',
+    finalMessage: 'Tudo o que eu quero é ser feliz ao seu lado e construir com você um futuro maravilhoso e próspero.',
 
 
     // Demo gallery images (base64 encoded small placeholders)

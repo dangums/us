@@ -24,11 +24,11 @@ export class Carousel {
         window.addEventListener('resize', () => this.adjustResponsiveness());
 
                 // Configurações de sensibilidade
-                this.swipeThreshold = 50; // Distância mínima para considerar swipe
-                this.animationDuration = 300; // Duração da animação em ms
+        this.swipeThreshold = 50; // Distância mínima para considerar swipe
+        this.animationDuration = 300; // Duração da animação em ms
                 
-                this.setupTouchEvents();
-                this.updateCarousel();
+        this.setupTouchEvents();
+        this.updateCarousel();
     }
 
     setupTouchEvents() {
