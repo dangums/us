@@ -21,7 +21,7 @@ export const config = {
         {
             date: '2012-09-21',
             title: 'Segundo beijo',
-            description: 'Apartir desse dia soude que você numca mais sairia da minha vida.'
+            description: 'Apartir desse dia soube que você nunca mais sairia da minha vida.'
         },
         {
             date: '2012-09-23',
@@ -29,7 +29,7 @@ export const config = {
             description: 'Foi nesse dia, a caminho da rodoviária que te pedi em namoro.'
         },
         {
-            date: '2013-09-',
+            date: '2013-09',
             title: 'Moramos juntos',
             description: 'Esse foi um grande passo para a nossa grande jornada.'
         },
@@ -39,7 +39,7 @@ export const config = {
             description: 'Nesse dia firmamos oficialmente o amor que sentimos um pelo outro.'
         },
         {
-            date: '2017-07-',
+            date: '2017-07',
             title: 'Voo inesquecível',
             description: 'Voamos pela primeira vez de avião, JUNTOS e descobrimos que nunca mais estaríamos sós.'
         },
@@ -49,12 +49,12 @@ export const config = {
             description: 'Recebemos do universo o presente mais valioso que poderíamos. NOSSA FILHA.'
         },
         {
-            date: '2020-08-',
+            date: '2020-08',
             title: 'Mudanças e evolução',
             description: 'Nossa vida mudou com uma oportunidade maravilhosa de trabalho.'
         },
         {
-            date: '2025-03-',
+            date: '2025-03',
             title: 'Mais um desafio',
             description: 'Hoje estamos passando por mais uma mudaça desafiante e tenho certeza que isso nos fará crescer de todas as formas possíveis.'
         },

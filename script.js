@@ -56,23 +56,47 @@ function initializeMilestones() {
 }
 
 // Create milestone element
+function formatDateForDisplay(dateString) {
+    // Lista de meses em português com primeira letra maiúscula
+    const mesesPT = [
+        'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho',
+        'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'
+    ];
+
+    try {
+        if (dateString.match(/^\d{4}-\d{2}-\d{2}$/)) {
+            const [year, month, day] = dateString.split('-');
+            return `${parseInt(day)} de ${mesesPT[parseInt(month) - 1]} de ${year}`;
+        } 
+        else if (dateString.match(/^\d{4}-\d{2}$/)) {
+            const [year, month] = dateString.split('-');
+            return `${mesesPT[parseInt(month) - 1]} de ${year}`;
+        } 
+        else if (dateString.match(/^\d{4}$/)) {
+            return dateString;
+        }
+        return dateString;
+    } catch (e) {
+        return dateString;
+    }
+}
+
+// Função auxiliar para capitalizar apenas a primeira letra
+function capitalizeFirstLetter(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+}
+
+// E na sua função original:
 function createMilestoneElement(milestone) {
     const milestoneDiv = document.createElement('div');
     milestoneDiv.className = 'milestone';
     
-    const dateFormatted = DateTime.fromISO(milestone.date)
-    .setLocale('pt')  // Define a localidade para português
-    .toFormat("d 'de' MMMM 'de' yyyy");
-    
-    // Estrutura da milestone sem os botões de editar e excluir
     milestoneDiv.innerHTML = `
-        <div class="milestone-date">${dateFormatted}</div>
+        <div class="milestone-date">${formatDateForDisplay(milestone.date)}</div>
         <div class="milestone-title">${milestone.title}</div>
         <p>${milestone.description}</p>
-        <!-- Removido os botões de edição e exclusão -->
     `;
     
-    // Retorno do elemento sem a parte de edição e exclusão
     return milestoneDiv;
 }
 
